@@ -8,13 +8,22 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+final class ViewController: UIViewController {
+    @IBAction func pushNavigation(_ sender: Any) {
+        let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController()!
+        let nav = UINavigationController(rootViewController: vc )
+        nav.modalPresentationStyle = .fullScreen
+        self.present(nav, animated: true)
     }
-
-
+    
+    @IBAction func pushVC(_ sender: Any) {
+        let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController()!
+        vc.modalPresentationStyle = .pageSheet
+        self.present(vc, animated: true)
+    }
+    
+    @IBAction func dismiss(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
 }
 
