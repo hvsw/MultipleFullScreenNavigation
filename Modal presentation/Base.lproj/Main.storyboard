@@ -10,14 +10,13 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Modal_presentation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7o4-ND-tpH">
-                                <rect key="frame" x="153.5" y="403" width="107" height="90"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="7o4-ND-tpH">
+                                <rect key="frame" x="87" y="402.5" width="240" height="91"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hE-nc-zQb">
                                         <rect key="frame" x="0.0" y="0.0" width="107" height="30"/>
@@ -26,15 +25,27 @@
                                             <action selector="pushNavigation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FRx-Mu-Xe8"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iIJ-bc-njO">
-                                        <rect key="frame" x="27" y="30" width="53" height="30"/>
-                                        <state key="normal" title="pushVC"/>
-                                        <connections>
-                                            <action selector="pushVC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NzS-V5-B6H"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jCY-kE-Rdq">
+                                        <rect key="frame" x="0.0" y="30" width="240" height="31"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iIJ-bc-njO">
+                                                <rect key="frame" x="0.0" y="0.0" width="53" height="31"/>
+                                                <state key="normal" title="pushVC"/>
+                                                <connections>
+                                                    <action selector="pushVC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NzS-V5-B6H"/>
+                                                </connections>
+                                            </button>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="syc-AL-h0I">
+                                                <rect key="frame" x="61" y="0.0" width="179" height="32"/>
+                                                <segments>
+                                                    <segment title=".fullScreen"/>
+                                                    <segment title=".pageSheet"/>
+                                                </segments>
+                                            </segmentedControl>
+                                        </subviews>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0wO-Y9-bj4">
-                                        <rect key="frame" x="27.5" y="60" width="52" height="30"/>
+                                        <rect key="frame" x="0.0" y="61" width="52" height="30"/>
                                         <state key="normal" title="dismiss"/>
                                         <connections>
                                             <action selector="dismiss:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qLQ-LB-8jq"/>
@@ -46,11 +57,17 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="7o4-ND-tpH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5k6-E5-91a"/>
+                            <constraint firstItem="7o4-ND-tpH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="AiJ-Oa-7RO"/>
+                            <constraint firstItem="7o4-ND-tpH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="M5K-ax-zx0"/>
                             <constraint firstItem="7o4-ND-tpH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XF9-qa-ft9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="presentationStyleSegmentedControl" destination="syc-AL-h0I" id="MPE-RY-Vk1"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="133" y="139"/>
         </scene>

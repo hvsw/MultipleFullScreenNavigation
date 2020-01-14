@@ -9,6 +9,12 @@
 import UIKit
 
 final class ViewController: UIViewController {
+    @IBOutlet weak var presentationStyleSegmentedControl: UISegmentedControl!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.presentationStyleSegmentedControl.selectedSegmentIndex = UIModalPresentationStyle.pageSheet.rawValue
+    }
     @IBAction func pushNavigation(_ sender: Any) {
         let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController()!
         let nav = UINavigationController(rootViewController: vc )
@@ -17,8 +23,12 @@ final class ViewController: UIViewController {
     }
     
     @IBAction func pushVC(_ sender: Any) {
+        guard let modalPresentationStyle = UIModalPresentationStyle(rawValue: self.presentationStyleSegmentedControl.selectedSegmentIndex) else {
+            print("Invalid selectedSegmentedIndex (\(self.presentationStyleSegmentedControl.selectedSegmentIndex))")
+            return
+        }
         let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController()!
-        vc.modalPresentationStyle = .pageSheet
+        vc.modalPresentationStyle = modalPresentationStyle
         self.present(vc, animated: true)
     }
     
